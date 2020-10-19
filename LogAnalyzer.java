@@ -1,8 +1,8 @@
 /**
  * Read web server data and analyse hourly access patterns.
  * 
- * @author David J. Barnes and Michael Kölling.
- * @version    2016.02.29
+ * @author Zach Theis.
+ * @version    2020.10.19
  */
 public class LogAnalyzer
 {
@@ -18,9 +18,11 @@ public class LogAnalyzer
      */
     public LogAnalyzer()
     { 
-        // Create the array object to hold the hourly
+        // Create the array object to hold the hourly, daily, and monthly
         // access counts.
         hourCounts = new int[24];
+        dayCounts = new int[31];
+        monthCounts = new int[12];
         // Create the reader to obtain the data.
         reader = new LogfileReader("demo.log");
     }
@@ -33,6 +35,8 @@ public class LogAnalyzer
     public LogAnalyzer(String fileName)
     {
         hourCounts = new int[24];
+        dayCounts = new int[31];
+        monthCounts = new int[12];
         reader = new LogfileReader(fileName);
     }
 
@@ -64,7 +68,7 @@ public class LogAnalyzer
         {
             LogEntry entry = reader.next();
             int month = entry.getMonth();
-            dayCounts[month]++;
+            monthCounts[month]++;
         }
     }
 
