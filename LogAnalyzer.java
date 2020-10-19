@@ -169,6 +169,10 @@ public class LogAnalyzer
         return quietest;
     }
     
+    /**
+     * Finds and returns the busiest day.
+     * @return The day to return
+     */
     public int busiestDay()
     {
         int busiest = 0;
@@ -184,6 +188,29 @@ public class LogAnalyzer
         return busiest;
     }
     
+    /**
+     * Finds and returns the quiestest day
+     * @return The day to be returned
+     */
+    public int quietestDay()
+    {
+        int quietest = 0;
+        int lastPlace = dayCounts[0];
+        for(int day = 1; day < dayCounts.length; day++)
+        {
+            if(dayCounts[day] < lastPlace)
+            {
+                lastPlace = dayCounts[day];
+                quietest = day;
+            }
+        }
+        return quietest;
+    }
+    
+    /**
+     * Finds and returns the busiest month
+     * @return The month to be returned
+     */
     public int busiestMonth()
     {
         int busiest = 0;
@@ -197,5 +224,24 @@ public class LogAnalyzer
             }
         }
         return busiest;
+    }
+    
+    /**
+     * Finds and returns the quietest month
+     * @return The month to be returned
+     */
+    public int quietestMonth()
+    {
+        int quietest = 0;
+        int lastPlace = monthCounts[0];
+        for(int month = 1; month < monthCounts.length; month++)
+        {
+            if(monthCounts[month] < lastPlace)
+            {
+                lastPlace = monthCounts[month];
+                quietest = month;
+            }
+        }
+        return quietest;
     }
 }
