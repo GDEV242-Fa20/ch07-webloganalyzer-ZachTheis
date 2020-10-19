@@ -45,7 +45,7 @@ public class LogEntry implements Comparable<LogEntry>
     
     /**
      * Create a LogEntry from the individual components.
-     * @param year The year
+     * @param year The year (2015-2019)
      * @param month The month (1-12)
      * @param day The day (1-31)
      * @param hour The hour (0-23)
@@ -61,6 +61,21 @@ public class LogEntry implements Comparable<LogEntry>
         dataValues[HOUR] = hour;
         dataValues[MINUTE] = minute;
         setWhen();
+    }
+    
+    public int getYear()
+    {
+        return dataValues[YEAR];
+    }
+    
+    public int getMonth()
+    {
+        return dataValues[MONTH];
+    }
+    
+    public int getDay()
+    {
+        return dataValues[DAY];
     }
     
     /**

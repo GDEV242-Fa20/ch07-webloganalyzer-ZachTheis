@@ -8,6 +8,8 @@ public class LogAnalyzer
 {
     // Where to calculate the hourly access counts.
     private int[] hourCounts;
+    private int[] dayCounts;
+    private int[] monthCounts;
     // Use a LogfileReader to access the data.
     private LogfileReader reader;
 
@@ -43,6 +45,26 @@ public class LogAnalyzer
             LogEntry entry = reader.next();
             int hour = entry.getHour();
             hourCounts[hour]++;
+        }
+    }
+    
+    public void analyzeDailyData()
+    {
+        while(reader.hasNext())
+        {
+            LogEntry entry = reader.next();
+            int day = entry.getDay();
+            dayCounts[day]++;
+        }
+    }
+    
+    public void analyzeMonthlyData()
+    {
+        while(reader.hasNext())
+        {
+            LogEntry entry = reader.next();
+            int month = entry.getMonth();
+            dayCounts[month]++;
         }
     }
 
@@ -141,5 +163,20 @@ public class LogAnalyzer
             }
         }
         return quietest;
+    }
+    
+        public int busiestDay()
+    {
+        int busiest = 0;
+        int firstPlace = dayCounts[0];
+        for(int day = 1; day < dayCounts.length; day++)
+        {
+            if(dayCounts[day] > firstPlace)
+            {
+                firstPlace = dayCounts[day];
+                busiest = day;
+            }
+        }
+        return busiest;
     }
 }
