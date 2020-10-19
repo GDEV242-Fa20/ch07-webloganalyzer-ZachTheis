@@ -169,7 +169,7 @@ public class LogAnalyzer
         return quietest;
     }
     
-        public int busiestDay()
+    public int busiestDay()
     {
         int busiest = 0;
         int firstPlace = dayCounts[0];
@@ -179,6 +179,21 @@ public class LogAnalyzer
             {
                 firstPlace = dayCounts[day];
                 busiest = day;
+            }
+        }
+        return busiest;
+    }
+    
+    public int busiestMonth()
+    {
+        int busiest = 0;
+        int firstPlace = monthCounts[0];
+        for(int month = 1; month < monthCounts.length; month++)
+        {
+            if(monthCounts[month] > firstPlace)
+            {
+                firstPlace = monthCounts[month];
+                busiest = month;
             }
         }
         return busiest;
