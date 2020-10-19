@@ -43,45 +43,43 @@ public class LogAnalyzer
     /**
      * Analyze the hourly access data from the log file.
      */
-    public void analyzeHourlyData()
+    public void analyzeData()
     {
         while(reader.hasNext()) {
             LogEntry entry = reader.next();
             int hour = entry.getHour();
             hourCounts[hour]++;
-        }
-    }
-    
-    public void analyzeDailyData()
-    {
-        while(reader.hasNext())
-        {
-            LogEntry entry = reader.next();
             int day = entry.getDay();
             dayCounts[day]++;
-        }
-    }
-    
-    public void analyzeMonthlyData()
-    {
-        while(reader.hasNext())
-        {
-            LogEntry entry = reader.next();
             int month = entry.getMonth();
             monthCounts[month]++;
         }
     }
-
+    
     /**
-     * Print the hourly counts.
+     * Print the daily counts.
      * These should have been set with a prior
-     * call to analyzeHourlyData.
+     * call to analyzeDailyData.
      */
-    public void printHourlyCounts()
+    public void printDailyCounts()
     {
-        System.out.println("Hr: Count");
-        for(int hour = 0; hour < hourCounts.length; hour++) {
-            System.out.println(hour + ": " + hourCounts[hour]);
+        System.out.println("Day: Count");
+        for(int day = 0; day < dayCounts.length; day++) {
+            System.out.println(day + ": " + dayCounts[day]);
+        }
+    }
+    
+    /**
+     * Print the monthly counts.
+     * These should have been set with a prior
+     * call to analyzeMonthlyData.
+     */
+    public void printMonthlyCounts()
+    {
+        System.out.println("Month: Count");
+        for(int month = 0; month < monthCounts.length; month++) 
+        {
+            System.out.println(month + ": " + monthCounts[month]);
         }
     }
     
@@ -109,6 +107,11 @@ public class LogAnalyzer
         }
         return total;
     }
+    
+    //public int TotalAccessesPerMonth()
+    //{
+    //    
+    //}
     
     /**
      * Finds and returns the busiest hour.
