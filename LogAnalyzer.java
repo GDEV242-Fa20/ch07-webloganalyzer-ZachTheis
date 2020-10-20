@@ -102,15 +102,21 @@ public class LogAnalyzer
         int total = 0;
         for(int hour = 0; hour < hourCounts.length; hour++)
         {
-            //System.out.println(hourCounts[hour]);
             total += hourCounts[hour];
         }
         return total;
     }
     
-    //public int averageAccessesPerMonth()
+    public int averageAccessesPerMonth()
     {
-        
+        int totalCounts = 0;
+        int totalMonths = 0;
+        for(int month = 0; month < monthCounts.length; month++)
+        {
+            totalCounts += monthCounts[month];
+            totalMonths++;
+        }
+        return totalCounts/totalMonths;
     }
     
     /**
