@@ -59,7 +59,7 @@ public class LogAnalyzer
     /**
      * Print the daily counts.
      * These should have been set with a prior
-     * call to analyzeDailyData.
+     * call to analyzeData.
      */
     public void printDailyCounts()
     {
@@ -72,9 +72,9 @@ public class LogAnalyzer
     /**
      * Print the monthly counts.
      * These should have been set with a prior
-     * call to analyzeMonthlyData.
+     * call to analyzeData.
      */
-    public void printMonthlyCounts()
+    public void totalAccessesPerMonth()
     {
         System.out.println("Month: Count");
         for(int month = 0; month < monthCounts.length; month++) 
@@ -108,10 +108,10 @@ public class LogAnalyzer
         return total;
     }
     
-    //public int TotalAccessesPerMonth()
-    //{
-    //    
-    //}
+    //public int averageAccessesPerMonth()
+    {
+        
+    }
     
     /**
      * Finds and returns the busiest hour.
