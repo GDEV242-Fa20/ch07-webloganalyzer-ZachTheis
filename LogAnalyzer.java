@@ -41,7 +41,7 @@ public class LogAnalyzer
     }
 
     /**
-     * Analyze the hourly access data from the log file.
+     * Analyze the access data from the log file.
      */
     public void analyzeData()
     {
@@ -65,7 +65,7 @@ public class LogAnalyzer
     {
         System.out.println("Day: Count");
         for(int day = 0; day < dayCounts.length; day++) {
-            System.out.println(day + ": " + dayCounts[day]);
+            System.out.println((day + 1) + ": " + dayCounts[day]);
         }
     }
     
@@ -79,7 +79,7 @@ public class LogAnalyzer
         System.out.println("Month: Count");
         for(int month = 0; month < monthCounts.length; month++) 
         {
-            System.out.println(month + ": " + monthCounts[month]);
+            System.out.println((month + 1) + ": " + monthCounts[month]);
         }
     }
     
@@ -107,6 +107,11 @@ public class LogAnalyzer
         return total;
     }
     
+    /**
+     * Calculates the total monthly accesses then divides by the number of
+     * months
+     * @return The average monthly accesses
+     */
     public int averageAccessesPerMonth()
     {
         int totalCounts = 0;
